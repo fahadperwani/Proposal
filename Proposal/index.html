@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal</title>
+    <style>
+        html {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .container {
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .buttons {
+            margin-top: 1rem;
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+        button {
+            position: absolute;
+        }
+        .yes {
+            top: 20%;
+            right: 10%;
+        }
+        .no {
+            top: 20%;
+            left: 10%;
+        }
+        .hidden {
+            display: none;
+        }
+
+        @media screen and (max-width: 1000px){
+            .container {
+                display: none;
+            }
+            .hidden {
+                display: flex;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Heyyyyy.. Will you marry me 🥺</h1>
+        <img src="pleasee.gif" alt="">
+        <div class="buttons">
+            <button class="no">No</button>
+            <button class="yes">Yes</button>
+        </div>
+    </div>
+    <div class="hidden">
+        <h1>Please open it on a bigger device 😁</h1>
+    </div>
+
+    <script>
+        const btn = document.querySelector('.no');
+        let left = btn.style.left.split('%')[0]
+        let up = btn.style.left.split('%')[0]
+        let temp = left;
+        btn.addEventListener('mouseover', () => {
+            while(Math.abs(left-temp) < 15) temp = Math.floor(Math.random() * 50);
+            up = Math.floor(Math.random() * 100);
+            left = temp
+            btn.style.left = left + '%';
+            btn.style.top = up + '%';
+        })
+    </script>
+</body>
+</html>
